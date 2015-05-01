@@ -22,7 +22,7 @@
         moreLink: '<a href="#">Read More</a>',
         lessLink: '<a href="#">Close</a>',
         embedCSS: true,
-        blockCSS: 'display: block; width: 100%;',
+        blockCSS: 'display: inline-block; color: #444;',
         startOpen: false,
 
         // callbacks

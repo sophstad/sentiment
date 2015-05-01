@@ -32,9 +32,6 @@ h4,
 h4 a {
   color: #222;
 }
-article {
-  max-height: 5.75rem;
-}
 a {
   border-bottom: 2px solid #ccc;
   color: #ccc;
@@ -99,6 +96,14 @@ nav a {
 .time-span {
   border-bottom: 1px solid #E0E0E0;
   padding: 2rem 0;
+}
+
+/* Comment Section */
+article {
+  max-height: 5.75rem;
+}
+article a {
+  color: #444;
 }
 
 /* Footer */
