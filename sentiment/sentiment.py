@@ -5,7 +5,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from datetime import datetime, timedelta, date
 
 import days
-
+from scraper import scraper
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -14,7 +14,10 @@ app.config.from_object('config')
 @app.route("/")
 def home():
     d = datetime.now().strftime("%B %d, %Y")
-    day = days.get_entry(date.today() - timedelta(days=16))
+    day = days.get_entry(date.today() - timedelta(days=23))
+    comment1_title = scraper.get_title(day.comment1_url)
+    comment2_title = scraper.get_title(day.comment2_url)
+    comment3_title = scraper.get_title(day.comment3_url)
     if day.sentiment <= -0.7:
     	mood = "Terrible &#x1F621;"
     	color = "#ff4c40"
@@ -40,7 +43,10 @@ def home():
                             date = d,
                             mood = mood,
                             header_color = color,
-                            day = day)
+                            day = day,
+                            comment1_title = comment1_title,
+                            comment2_title = comment2_title,
+                            comment3_title = comment3_title,)
 
 if __name__ == "__main__":
     app.debug = True
